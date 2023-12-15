@@ -61,8 +61,6 @@ add_element:
 ;;; m proc
 m:
     push rbp
-    mov rbp, rsp
-    sub rsp, 16
 
     test rdi, rdi
     jz outm
@@ -105,17 +103,12 @@ f:
 
     mov rdi, [rdi]
     call rdx
-    test rax, rax
-    jz z
 
     mov rdi, [rbx]
     mov rsi, r12
     call add_element
     mov rsi, rax
     jmp ff
-
-z:
-    mov rsi, r12
 
 ff:
     mov rdi, [rbx + 8]
